@@ -1,5 +1,8 @@
 package com.Alpaca.forum.entities;
 
+
+
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +19,7 @@ import javax.persistence.Table;
 public class User_Ban {
 		
 	
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_ban_id")
@@ -31,5 +34,33 @@ public class User_Ban {
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="user_id")
 	private User user;
+
+	@Override
+	public String toString() {
+		return "User_Ban [user_ban_id=" + user_ban_id + ", discussion_Group=" + discussion_Group + ", user=" + user
+				+ "]";
+	}
+
+	public Discussion_Group getDiscussion_Group() {
+		return discussion_Group;
+	}
+
+	public void setDiscussion_Group(Discussion_Group discussion_Group) {
+		this.discussion_Group = discussion_Group;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public int getUser_ban_id() {
+		return user_ban_id;
+	}
+	
+	public User_Ban() {}
 	
 }

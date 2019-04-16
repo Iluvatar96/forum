@@ -2,6 +2,7 @@ package com.Alpaca.forum.entities;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,10 +37,7 @@ public class User {
 	@Column(name="e_mail")
 	private String email;
 
-	public User() {
-		
-	}
-
+	
 	public int getUser_id() {
 		return user_id;
 	}
@@ -94,5 +92,7 @@ public class User {
 				+ is_premium + ", created_at=" + created_at + ", email=" + email + "]";
 	}
 	
+public User() {}
 
+	
 }

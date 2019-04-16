@@ -54,5 +54,5 @@ public class Moderator {
 	public int getModerator_id() {
 		return moderator_id;
 	}
-	
-}
+	public Moderator(){}
+	}

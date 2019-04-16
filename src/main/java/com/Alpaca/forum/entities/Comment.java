@@ -82,6 +82,6 @@ public class Comment {
 		return "Comment [comment_id=" + comment_id + ", user=" + user + ", content=" + content + ", post=" + post
 				+ ", created_at=" + created_at + "]";
 	}
-
 	
+	public Comment() {}
 }

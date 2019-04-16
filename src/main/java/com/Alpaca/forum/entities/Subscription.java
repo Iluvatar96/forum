@@ -75,5 +75,7 @@ public class Subscription {
 		return subscription_id;
 	}
 	
-	
+	public Subscription() {
+		
+	}
 }

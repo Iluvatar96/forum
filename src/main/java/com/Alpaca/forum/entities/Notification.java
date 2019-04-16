@@ -50,4 +50,58 @@ public class Notification {
 	
 	@Column(name="unread")
 	private int unread = 1;
+
+	public Date getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
+	}
+
+	public User getSender_User() {
+		return sender_User;
+	}
+
+	public void setSender_User(User sender_User) {
+		this.sender_User = sender_User;
+	}
+
+	public User getRecipient_User() {
+		return recipient_User;
+	}
+
+	public void setRecipient_User(User recipient_User) {
+		this.recipient_User = recipient_User;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getObject_id() {
+		return object_id;
+	}
+
+	public void setObject_id(int object_id) {
+		this.object_id = object_id;
+	}
+
+	public int getUnread() {
+		return unread;
+	}
+
+	public void setUnread(int unread) {
+		this.unread = unread;
+	}
+
+	public int getNotification_id() {
+		return notification_id;
+	}
+	
+	public Notification() {}
 }

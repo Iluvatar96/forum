@@ -44,5 +44,6 @@ public class Tag {
 		return "Tag [tag_id=" + tag_id + ", tag_Name=" + tag_Name + "]";
 	}
 	
+	public Tag() {}
 	
 }

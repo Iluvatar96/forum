@@ -61,6 +61,6 @@ public class Group_Tag {
 				+ "]";
 	}
 	
-	
+	public Group_Tag() {}
 	
 }

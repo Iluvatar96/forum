@@ -93,6 +93,6 @@ public class Post {
 		return post_id;
 	}
 	
-	
-	
+	public Post() {
+	}
 }
