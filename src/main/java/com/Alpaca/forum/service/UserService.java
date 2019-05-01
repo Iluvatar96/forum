@@ -1,13 +1,13 @@
-package com.Alpaca.forum.dao;
+package com.Alpaca.forum.service;
 
 import java.util.List;
 
 import com.Alpaca.forum.entities.User;
 
-public interface UserDAO {
+public interface UserService {
 	
 	
-	public  List<User>findAll();
+public  List<User>findAll();
 	
 	public User findById(int theID);
 
@@ -16,5 +16,4 @@ public interface UserDAO {
 	public void deleteByID(int theID);
 	public User findByUsername(String username);
 	public User findByEmail(String email);
-
 }

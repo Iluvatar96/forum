@@ -1,5 +1,5 @@
 package com.Alpaca.forum.dao;
 
-public interface CommentDAO {
-	
+public interface ModeratorDAO {
+
 }
