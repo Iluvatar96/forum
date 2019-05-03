@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.Alpaca.forum.dao.UserDAO;
@@ -17,7 +18,7 @@ public class UserDAOImpl implements UserDAO {
 	private EntityManager entityManager;
 	
 	
-	
+	@Autowired
 	public UserDAOImpl(EntityManager entityManager) {
 		
 		this.entityManager = entityManager;
@@ -56,7 +57,9 @@ public class UserDAOImpl implements UserDAO {
 	public void deleteByID(int theID) {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query theQuery = 
+		
+		// czy <?> jest potrzebne ?
+		Query<?> theQuery = 
 				currentSession.createQuery("delete from User where user_id=:user_id" );
 		theQuery.setParameter("user_id", theID);
 		theQuery.executeUpdate();
