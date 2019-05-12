@@ -1,5 +1,7 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="moderators")
-public class Moderator {
+public class Moderator implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -801018139774885099L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="moderatr_id")
@@ -28,6 +35,15 @@ public class Moderator {
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="group_id")
 	private Discussion_Group discussion_Group;
+
+	
+	
+	public Moderator(int moderator_id, User user, Discussion_Group discussion_Group) {
+	
+		this.moderator_id = moderator_id;
+		this.user = user;
+		this.discussion_Group = discussion_Group;
+	}
 
 	@Override
 	public String toString() {
@@ -49,6 +65,12 @@ public class Moderator {
 
 	public void setDiscussion_Group(Discussion_Group discussion_Group) {
 		this.discussion_Group = discussion_Group;
+	}
+	
+	
+
+	public void setModerator_id(int moderator_id) {
+		this.moderator_id = moderator_id;
 	}
 
 	public int getModerator_id() {

@@ -1,5 +1,6 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -10,14 +11,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Type;
+
 
 @Entity
 @Table(name="comments")
-public class Comment {
+public class Comment implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -986484681148331019L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="comment_id")
@@ -37,13 +47,21 @@ public class Comment {
 	@JoinColumn(name="post_id")
 	private Post post;
 	
-	@Column(name="created_at")
-	@Type(type="timestamp")
+	@Column(name="created_at",columnDefinition="DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_at;
 
 	public int getComment_id() {
 		return comment_id;
 	}
+
+	
+	
+	public void setComment_id(int comment_id) {
+		this.comment_id = comment_id;
+	}
+
+
 
 	public User getUser() {
 		return user;
@@ -76,6 +94,17 @@ public class Comment {
 	public void setCreated_at(Date created_at) {
 		this.created_at = created_at;
 	}
+	
+	 @PrePersist
+	    protected void onCreate() {
+	        this.created_at = new Date();
+	       
+	    }
+
+	    @PreUpdate
+	    protected void onUpdate() {
+	        this.created_at = new Date();
+	    }
 
 	@Override
 	public String toString() {

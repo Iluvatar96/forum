@@ -1,5 +1,6 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -10,14 +11,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="notifications")
-public class Notification {
+public class Notification implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8229053995172351175L;
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="notification_id")
@@ -51,6 +60,20 @@ public class Notification {
 	@Column(name="unread")
 	private int unread = 1;
 
+
+	 @PrePersist
+	    protected void onCreate() {
+	        this.created_at = new Date();
+	       
+	    }
+
+	    @PreUpdate
+	    protected void onUpdate() {
+	        this.created_at = new Date();
+	    }
+
+	
+	
 	public Date getCreated_at() {
 		return created_at;
 	}
@@ -81,6 +104,12 @@ public class Notification {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	
+
+	public void setNotification_id(int notification_id) {
+		this.notification_id = notification_id;
 	}
 
 	public int getObject_id() {

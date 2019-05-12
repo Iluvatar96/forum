@@ -1,5 +1,6 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -10,14 +11,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Type;
+
 
 @Entity
 @Table(name="discussion_groups")
-public class Discussion_Group {
+public class Discussion_Group implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8921296928935310305L;
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="group_id")
@@ -39,8 +50,8 @@ public class Discussion_Group {
 	@Column(name="access_password")
 	private String accessPasswd;
 	
-	@Column(name="created_at")
-	@Type(type="timestamp")
+	@Column(name="created_at",columnDefinition="DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_at;
 	
 	@Column(name="group_info")
@@ -53,7 +64,18 @@ public class Discussion_Group {
 	private String description;
 
 	
-	
+
+	 @PrePersist
+	    protected void onCreate() {
+	        this.created_at = new Date();
+	       
+	    }
+
+	    @PreUpdate
+	    protected void onUpdate() {
+	        this.created_at = new Date();
+	    }
+
 	
 	@Override
 	public String toString() {
@@ -64,6 +86,12 @@ public class Discussion_Group {
 
 	public Discussion_Group() {
 		
+	}
+	
+	
+
+	public void setGroup_id(int group_id) {
+		this.group_id = group_id;
 	}
 
 	public int getGroup_id() {

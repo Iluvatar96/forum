@@ -1,5 +1,6 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,9 +21,14 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="subscriptions")
-public class Subscription {
+public class Subscription implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6062181727965813271L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="subscription_id")
@@ -41,12 +49,28 @@ public class Subscription {
 	@Temporal(TemporalType.DATE)
 	private Date subscribed_at;
 
+	
+
+	 @PrePersist
+	    protected void onCreate() {
+	        this.subscribed_at = new Date();
+	       
+	    }
+
+	    @PreUpdate
+	    protected void onUpdate() {
+	        this.subscribed_at = new Date();
+	    }
+
+	
+	
 	@Override
 	public String toString() {
 		return "Subscription [subscription_id=" + subscription_id + ", discussion_Group=" + discussion_Group + ", user="
 				+ user + ", subscribed_at=" + subscribed_at + "]";
 	}
 
+	
 	public Discussion_Group getDiscussion_Group() {
 		return discussion_Group;
 	}
@@ -70,6 +94,13 @@ public class Subscription {
 	public void setSubscribed_at(Date subscribed_at) {
 		this.subscribed_at = subscribed_at;
 	}
+
+	
+	
+	public void setSubscription_id(int subscription_id) {
+		this.subscription_id = subscription_id;
+	}
+
 
 	public int getSubscription_id() {
 		return subscription_id;

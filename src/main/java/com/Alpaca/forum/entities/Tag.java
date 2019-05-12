@@ -1,5 +1,7 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,9 +11,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tags")
-public class Tag {
+public class Tag implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5276789291444411152L;
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="tag_id")
@@ -20,6 +28,12 @@ public class Tag {
 	
 	@Column(name="name")
 	private String tag_Name;
+
+
+	public void setTag_id(int tag_id) {
+		this.tag_id = tag_id;
+	}
+
 
 
 	public int getTag_id() {

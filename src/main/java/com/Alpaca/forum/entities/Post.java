@@ -1,5 +1,6 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -10,14 +11,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Type;
+
 
 @Entity
 @Table(name="posts")
-public class Post {
+public class Post  implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7440858569911579680L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="post_id")
@@ -39,9 +49,26 @@ public class Post {
 	@JoinColumn(name="group_id")
 	private Discussion_Group discussion_Group;
 	
-	@Column(name="created_at")
-	@Type(type="timestamp")
+	
+	
+	@Column(name="created_at",columnDefinition="DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_at;
+	
+	
+	
+
+	 @PrePersist
+	    protected void onCreate() {
+	        this.created_at = new Date();
+	       
+	    }
+
+	    @PreUpdate
+	    protected void onUpdate() {
+	        this.created_at = new Date();
+	    }
+
 
 	@Override
 	public String toString() {
@@ -87,6 +114,12 @@ public class Post {
 
 	public void setCreated_at(Date created_at) {
 		this.created_at = created_at;
+	}
+	
+	
+
+	public void setPost_id(int post_id) {
+		this.post_id = post_id;
 	}
 
 	public int getPost_id() {

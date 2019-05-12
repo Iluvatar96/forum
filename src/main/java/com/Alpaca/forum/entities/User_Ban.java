@@ -3,6 +3,8 @@ package com.Alpaca.forum.entities;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,9 +18,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user_bans")
-public class User_Ban {
+public class User_Ban implements Serializable{
 		
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7145289358584522004L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -55,6 +62,12 @@ public class User_Ban {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	
+
+	public void setUser_ban_id(int user_ban_id) {
+		this.user_ban_id = user_ban_id;
 	}
 
 	public int getUser_ban_id() {

@@ -34,9 +34,9 @@ public class UserController {
 	}
 	@GetMapping("/users/{user_id}")
 	public User getUser(@PathVariable int user_id){
-		User theUser = userService.findById(user_id);
+		User theUser = userService.findOne(user_id);
 		
-		if(theUser == null) throw new RuntimeException("Employee id not found:  "  + user_id);
+		if(theUser == null) throw new RuntimeException("User id not found:  "  + user_id);
 		
 		return theUser;
 		

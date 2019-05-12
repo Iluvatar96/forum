@@ -7,13 +7,22 @@ import com.Alpaca.forum.entities.User;
 public interface UserService {
 	
 	
-public  List<User>findAll();
-	
-	public User findById(int theID);
+	List<User> findAll();
 
-	public void updateUser(User theUser);
-	public void addUser(User theUser);
-	public void deleteByID(int theID);
-	public User findByUsername(String username);
-	public User findByEmail(String email);
+    User findOne(int id);
+
+    User findByUsername(String username);
+
+    User findByEmail(String email);
+
+    User save(User user);
+
+    void create(User user);
+
+    void remove(int id);
+
+    void remove(User user);
+
+    void remove(User user,
+        String password);
 }

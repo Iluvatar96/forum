@@ -1,5 +1,6 @@
 package com.Alpaca.forum.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -8,14 +9,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3009408092483512343L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
@@ -30,12 +39,25 @@ public class User {
 	@Column(name="is_premium")
 	private int is_premium = 0;
 	
-	@Column(name="created_at")
-	@Type(type="timestamp")
+	@Column(name="created_at",columnDefinition="DATETIME")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_at;
 	
 	@Column(name="e_mail")
 	private String email;
+
+	
+
+	 @PrePersist
+	    protected void onCreate() {
+	        this.created_at = new Date();
+	       
+	    }
+
+	    @PreUpdate
+	    protected void onUpdate() {
+	        this.created_at = new Date();
+	    }
 
 	
 	public int getUser_id() {
