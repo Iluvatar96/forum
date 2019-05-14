@@ -9,34 +9,34 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 
-
-@Configuration
-@EnableWebSecurity
-public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
-	
-	
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// TODO Auto-generated method stub
-		auth.userDetailsService(userDetailsService);
-	}
-	
-	
-	@Override
-	public void configure(HttpSecurity httpSecurity) throws Exception {
-		
-		
-
-		httpSecurity.csrf().disable()
-			.authorizeRequests()
-			//.antMatchers(method)
-			.anyRequest()
-			.permitAll()
-			.and().httpBasic();
-		
-	}
-
-}
+//
+//@Configuration
+//@EnableWebSecurity
+//public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+//	
+//	
+//	@Autowired
+//	private UserDetailsService userDetailsService;
+//	
+////	@Override
+////	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+////		// TODO Auto-generated method stub
+////		auth.userDetailsService(userDetailsService);
+////	}
+//	
+//	
+//	@Override
+//	public void configure(HttpSecurity httpSecurity) throws Exception {
+//		
+//		
+//
+//		httpSecurity.csrf().disable()
+//			.authorizeRequests()
+//			//.antMatchers(method)
+//			.anyRequest()
+//			.permitAll()
+//			.and().httpBasic();
+//		
+//	}
+//
+//}
