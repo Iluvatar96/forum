@@ -1,9 +1,5 @@
 package com.Alpaca.forum.repository;
 
-import java.util.List;
-
-
-import com.Alpaca.forum.entities.Notification;
 
 public interface NotificationRepository {
 	

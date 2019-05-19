@@ -19,7 +19,7 @@ public class PostServiceImpl implements PostService {
 	
 	@Override
 	public List<Post> findAll() {
-		// TODO Auto-generated method stub
+	
 		return postRepository.findAll();
 	}
 

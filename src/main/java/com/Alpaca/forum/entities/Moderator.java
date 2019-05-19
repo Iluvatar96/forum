@@ -16,9 +16,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="moderators")
 public class Moderator implements Serializable {
-	/**
-	 * 
-	 */
+	
+	
+	
 	private static final long serialVersionUID = -801018139774885099L;
 
 	@Id
