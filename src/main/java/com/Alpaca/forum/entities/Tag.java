@@ -23,39 +23,39 @@ public class Tag implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="tag_id")
-	private int tag_id;
+	private int tagId;
 	
 	
 	@Column(name="name")
-	private String tag_Name;
+	private String tagName;
 
 
-	public void setTag_id(int tag_id) {
-		this.tag_id = tag_id;
+	public void setTag_id(int tagId) {
+		this.tagId = tagId;
 	}
 
 
 
-	public int getTag_id() {
-		return tag_id;
+	public int getTagId() {
+		return tagId;
 	}
 
 
 
-	public String getTag_Name() {
-		return tag_Name;
+	public String getTagName() {
+		return tagName;
 	}
 
 
-	public void setTag_Name(String tag_Name) {
-		this.tag_Name = tag_Name;
+	public void setTag_Name(String tagName) {
+		this.tagName = tagName;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "Tag [tag_id=" + tag_id + ", tag_Name=" + tag_Name + "]";
+		return "Tag [tag_id=" + tagId + ", tag_Name=" + tagName + "]";
 	}
 	
 	public Tag() {}

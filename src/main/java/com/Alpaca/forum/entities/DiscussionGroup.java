@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="discussion_groups")
-public class Discussion_Group implements Serializable{
+public class DiscussionGroup implements Serializable{
 	
 	/**
 	 * 
@@ -32,7 +32,7 @@ public class Discussion_Group implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="group_id")
-	private int group_id;
+	private int groupId;
 	
 	
 	@Column(name="name")
@@ -44,7 +44,7 @@ public class Discussion_Group implements Serializable{
 	private User user;
 	
 	@Column(name="is_private")
-	private int is_private = 0;
+	private int isPrivate = 0;
 	
 	
 	@Column(name="access_password")
@@ -52,10 +52,10 @@ public class Discussion_Group implements Serializable{
 	
 	@Column(name="created_at",columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private Date createdAt;
 	
 	@Column(name="group_info")
-	private String group_Info;
+	private String groupInfo;
 	
 	@Column(name="rules")
 	private String rules;
@@ -67,35 +67,35 @@ public class Discussion_Group implements Serializable{
 
 	 @PrePersist
 	    protected void onCreate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	       
 	    }
 
 	    @PreUpdate
 	    protected void onUpdate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	    }
 
 	
 	@Override
 	public String toString() {
-		return "Discussion_Group [group_id=" + group_id + ", groupName=" + groupName + ", user=" + user
-				+ ", is_private=" + is_private + ", accessPasswd=" + accessPasswd + ", created_at=" + created_at
-				+ ", group_Info=" + group_Info + ", rules=" + rules + ", description=" + description + "]";
+		return "Discussion_Group [group_id=" + groupId + ", groupName=" + groupName + ", user=" + user
+				+ ", is_private=" + isPrivate + ", accessPasswd=" + accessPasswd + ", created_at=" + createdAt
+				+ ", group_Info=" + groupInfo + ", rules=" + rules + ", description=" + description + "]";
 	}
 
-	public Discussion_Group() {
+	public DiscussionGroup() {
 		
 	}
 	
 	
 
-	public void setGroup_id(int group_id) {
-		this.group_id = group_id;
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
 	}
 
-	public int getGroup_id() {
-		return group_id;
+	public int getGroupId() {
+		return groupId;
 	}
 
 
@@ -115,12 +115,12 @@ public class Discussion_Group implements Serializable{
 		this.user = user;
 	}
 
-	public int getIs_private() {
-		return is_private;
+	public int getIsPrivate() {
+		return isPrivate;
 	}
 
-	public void setIs_private(int is_private) {
-		this.is_private = is_private;
+	public void setIs_private(int isPrivate) {
+		this.isPrivate = isPrivate;
 	}
 
 	public String getAccessPasswd() {
@@ -131,20 +131,22 @@ public class Discussion_Group implements Serializable{
 		this.accessPasswd = accessPasswd;
 	}
 
-	public Date getCreated_at() {
-		return created_at;
+	
+
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public String getGroup_Info() {
-		return group_Info;
+		return groupInfo;
 	}
 
 	public void setGroup_Info(String group_Info) {
-		this.group_Info = group_Info;
+		this.groupInfo = group_Info;
 	}
 
 	public String getRules() {

@@ -19,15 +19,11 @@ import com.Alpaca.forum.service.PostService;
 public class PostController {
 
 	
-
+@Autowired
 private PostService postService;
 
 
-@Autowired
- public PostController(PostService postService) {
-	
-	this.postService = postService;
-}
+
 
 @GetMapping("/list")
 public String listPosts(Model theModel) {
@@ -38,5 +34,7 @@ public String listPosts(Model theModel) {
 	return "list-posts";
 	
 }
+
+
 	
 }

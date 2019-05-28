@@ -2,10 +2,13 @@ package com.Alpaca.forum.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.Alpaca.forum.entities.Group_Tag;
+import com.Alpaca.forum.entities.GroupTag;
 
-public interface Group_TagRepository extends JpaRepository<Group_Tag, Integer> {
+
+@Repository
+public interface GroupTagRepository extends JpaRepository<GroupTag, Integer> {
 	
 
 //	

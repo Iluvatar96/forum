@@ -23,15 +23,14 @@ import javax.persistence.TemporalType;
 @Table(name="posts")
 public class Post  implements Serializable{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -7440858569911579680L;
 
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="post_id")
-	private int post_id;
+	private int postId;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
@@ -47,33 +46,33 @@ public class Post  implements Serializable{
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="group_id")
-	private Discussion_Group discussion_Group;
+	private DiscussionGroup discussionGroup;
 	
 	
 	
 	@Column(name="created_at",columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private Date createdAt;
 	
 	
 	
 
 	 @PrePersist
 	    protected void onCreate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	       
 	    }
 
 	    @PreUpdate
 	    protected void onUpdate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	    }
 
 
 	@Override
 	public String toString() {
-		return "Post [post_id=" + post_id + ", user=" + user + ", topic=" + topic + ", content=" + content
-				+ ", discussion_Group=" + discussion_Group + ", created_at=" + created_at + "]";
+		return "Post [post_id=" + postId + ", user=" + user + ", topic=" + topic + ", content=" + content
+				+ ", discussion_Group=" + discussionGroup + ", created_at=" + createdAt + "]";
 	}
 
 	public User getUser() {
@@ -100,30 +99,31 @@ public class Post  implements Serializable{
 		this.content = content;
 	}
 
-	public Discussion_Group getDiscussion_Group() {
-		return discussion_Group;
+	public DiscussionGroup getDiscussionGroup() {
+		return discussionGroup;
 	}
 
-	public void setDiscussion_Group(Discussion_Group discussion_Group) {
-		this.discussion_Group = discussion_Group;
+	public void setDiscussionGroup(DiscussionGroup discussionGroup) {
+		this.discussionGroup = discussionGroup;
 	}
 
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
 	
 	
 
-	public void setPost_id(int post_id) {
-		this.post_id = post_id;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public int getPost_id() {
-		return post_id;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public void setPost_id(int postId) {
+		this.postId = postId;
+	}
+
+	public int getPostId() {
+		return postId;
 	}
 	
 	public Post() {

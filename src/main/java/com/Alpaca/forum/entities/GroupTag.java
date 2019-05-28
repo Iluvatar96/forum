@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="group_tags")
-public class Group_Tag implements Serializable {
+public class GroupTag implements Serializable {
 	
 	
 	/**
@@ -26,36 +26,38 @@ public class Group_Tag implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="group_tag_id")
-	private int group_tag_id;
+	private int groupTagId;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="group_id")
-	private Discussion_Group discussion_Group;
+	private DiscussionGroup discussionGroup;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="tag_id")
 	private Tag tag;
+	
+	
 
-	public int getGroup_tag_id() {
-		return group_tag_id;
+	public int getGroupTagId() {
+		return groupTagId;
 	}
 
 	
 
-	public void setGroup_tag_id(int group_tag_id) {
-		this.group_tag_id = group_tag_id;
+	public void setGroupTagId(int groupTagId) {
+		this.groupTagId = groupTagId;
 	}
 
 
 
-	public Discussion_Group getDiscussion_Group() {
-		return discussion_Group;
+	public DiscussionGroup getDiscussionGroup() {
+		return discussionGroup;
 	}
 
-	public void setDiscussion_Group(Discussion_Group discussion_Group) {
-		this.discussion_Group = discussion_Group;
+	public void setDiscussionGroup(DiscussionGroup discussionGroup) {
+		this.discussionGroup = discussionGroup;
 	}
 
 	public Tag getTag() {
@@ -70,10 +72,10 @@ public class Group_Tag implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Group_Tag [group_tag_id=" + group_tag_id + ", discussion_Group=" + discussion_Group + ", tag=" + tag
+		return "Group_Tag [group_tag_id=" + groupTagId + ", discussionGroup=" + discussionGroup + ", tag=" + tag
 				+ "]";
 	}
 	
-	public Group_Tag() {}
+	public GroupTag() {}
 	
 }

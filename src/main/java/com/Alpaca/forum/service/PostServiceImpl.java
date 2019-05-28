@@ -3,10 +3,14 @@ package com.Alpaca.forum.service;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
+import com.Alpaca.forum.entities.DiscussionGroup;
 import com.Alpaca.forum.entities.Post;
+import com.Alpaca.forum.entities.User;
 import com.Alpaca.forum.repository.PostRepository;
 
 
@@ -15,9 +19,9 @@ public class PostServiceImpl implements PostService {
 
 	
 	@Autowired
-	PostRepository postRepository;
+	private PostRepository postRepository;
 	
-	@Override
+	@Override	
 	public List<Post> findAll() {
 	
 		return postRepository.findAll();
@@ -50,6 +54,24 @@ public class PostServiceImpl implements PostService {
 	public void deleteById(int theId) {
 		postRepository.deleteById(theId);
 		
+	}
+
+	@Override
+	public List<Post> findByDiscussionGroup(DiscussionGroup discussionGroup) {
+		
+		return postRepository.findByDiscussionGroup(discussionGroup);
+	}
+
+	@Override
+	public List<Post> findAllByOrderByCreatedAtDesc() {
+		
+		return postRepository.findAllByOrderByCreatedAtDesc();
+	}
+
+	@Override
+	public List<Post> findByUser(User user) {
+	
+		return postRepository.findByUser(user);
 	}
 
 }

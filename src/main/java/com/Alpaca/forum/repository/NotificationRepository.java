@@ -1,6 +1,8 @@
 package com.Alpaca.forum.repository;
 
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface NotificationRepository {
 	
 //public  List<Notification>findAll();

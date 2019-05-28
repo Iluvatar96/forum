@@ -24,20 +24,20 @@ import javax.persistence.TemporalType;
 public class Subscription implements Serializable {
 	
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 6062181727965813271L;
 
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="subscription_id")
-	private int subscription_id;
+	private int subscriptionId;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="group_id")
-	private Discussion_Group discussion_Group;
+	private DiscussionGroup discussionGroup;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
@@ -47,36 +47,36 @@ public class Subscription implements Serializable {
 	@Column(name="created_at")
 	@Basic
 	@Temporal(TemporalType.DATE)
-	private Date subscribed_at;
+	private Date subscribedAt;
 
 	
 
 	 @PrePersist
 	    protected void onCreate() {
-	        this.subscribed_at = new Date();
+	        this.subscribedAt = new Date();
 	       
 	    }
 
 	    @PreUpdate
 	    protected void onUpdate() {
-	        this.subscribed_at = new Date();
+	        this.subscribedAt = new Date();
 	    }
 
 	
 	
 	@Override
 	public String toString() {
-		return "Subscription [subscription_id=" + subscription_id + ", discussion_Group=" + discussion_Group + ", user="
-				+ user + ", subscribed_at=" + subscribed_at + "]";
+		return "Subscription [subscription_id=" + subscriptionId + ", discussion_Group=" + discussionGroup + ", user="
+				+ user + ", subscribed_at=" + subscribedAt + "]";
 	}
 
 	
-	public Discussion_Group getDiscussion_Group() {
-		return discussion_Group;
+	public DiscussionGroup getDiscussionGroup() {
+		return discussionGroup;
 	}
 
-	public void setDiscussion_Group(Discussion_Group discussion_Group) {
-		this.discussion_Group = discussion_Group;
+	public void setDiscussionGroup(DiscussionGroup discussionGroup) {
+		this.discussionGroup = discussionGroup;
 	}
 
 	public User getUser() {
@@ -87,23 +87,22 @@ public class Subscription implements Serializable {
 		this.user = user;
 	}
 
-	public Date getSubscribed_at() {
-		return subscribed_at;
-	}
-
-	public void setSubscribed_at(Date subscribed_at) {
-		this.subscribed_at = subscribed_at;
-	}
-
 	
-	
-	public void setSubscription_id(int subscription_id) {
-		this.subscription_id = subscription_id;
+	public Date getSubscribedAt() {
+		return subscribedAt;
+	}
+
+	public void setSubscribedAt(Date subscribedAt) {
+		this.subscribedAt = subscribedAt;
+	}
+
+	public void setSubscription_id(int subscriptionId) {
+		this.subscriptionId = subscriptionId;
 	}
 
 
-	public int getSubscription_id() {
-		return subscription_id;
+	public int getSubscriptionId() {
+		return subscriptionId;
 	}
 	
 	public Subscription() {

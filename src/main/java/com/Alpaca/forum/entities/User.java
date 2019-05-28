@@ -28,7 +28,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
-	private int user_id;
+	private int userId;
 	
 	@Column(name="username")
 	private String username;
@@ -37,11 +37,11 @@ public class User implements Serializable {
 	private String password;
 	
 	@Column(name="is_premium")
-	private int is_premium = 0;
+	private int isPremium = 0;
 	
 	@Column(name="created_at",columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private Date createdAt;
 	
 	@Column(name="e_mail")
 	private String email;
@@ -50,22 +50,22 @@ public class User implements Serializable {
 
 	 @PrePersist
 	    protected void onCreate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	       
 	    }
 
 	    @PreUpdate
 	    protected void onUpdate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	    }
 
 	
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {
@@ -84,20 +84,21 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public int getIs_premium() {
-		return is_premium;
+	public int getIsPremium() {
+		return isPremium;
 	}
 
-	public void setIs_premium(int is_premium) {
-		this.is_premium = is_premium;
+	public void setIsPremium(int isPremium) {
+		this.isPremium = isPremium;
 	}
 
-	public Date getCreated_at() {
-		return created_at;
+
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public String getEmail() {
@@ -110,8 +111,8 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", username=" + username + ", password=" + password + ", is_premium="
-				+ is_premium + ", created_at=" + created_at + ", email=" + email + "]";
+		return "User [user_id=" + userId + ", username=" + username + ", password=" + password + ", is_premium="
+				+ isPremium + ", created_at=" + createdAt + ", email=" + email + "]";
 	}
 	
 public User() {}

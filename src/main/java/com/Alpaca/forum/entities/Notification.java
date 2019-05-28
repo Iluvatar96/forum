@@ -30,24 +30,24 @@ public class Notification implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="notification_id")
-	private int notification_id;
+	private int notificationId;
 	
 	
 	@Column(name="created_at")
 	@Type(type="timestamp")
-	private Date created_at;
+	private Date createdAt;
 	
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="sender_id")
-	private User sender_User;
+	private User senderUser;
 	
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="recipient_id")
-	private User recipient_User;
+	private User recipientUser;
 	
 	
 	@Column(name="type")
@@ -55,7 +55,7 @@ public class Notification implements Serializable {
 	
 	
 	@Column(name="object_id")
-	private int object_id;
+	private int objectId;
 	
 	@Column(name="unread")
 	private int unread = 1;
@@ -63,39 +63,40 @@ public class Notification implements Serializable {
 
 	 @PrePersist
 	    protected void onCreate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	       
 	    }
 
 	    @PreUpdate
 	    protected void onUpdate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	    }
 
 	
 	
-	public Date getCreated_at() {
-		return created_at;
+
+	public Date getCreatedAt() {
+			return createdAt;
+		}
+
+		public void setCreatedAt(Date createdAt) {
+			this.createdAt = createdAt;
+		}
+
+	public User getSenderUser() {
+		return senderUser;
 	}
 
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
+	public void setSenderUser(User senderUser) {
+		this.senderUser = senderUser;
 	}
 
-	public User getSender_User() {
-		return sender_User;
+	public User getRecipientUser() {
+		return recipientUser;
 	}
 
-	public void setSender_User(User sender_User) {
-		this.sender_User = sender_User;
-	}
-
-	public User getRecipient_User() {
-		return recipient_User;
-	}
-
-	public void setRecipient_User(User recipient_User) {
-		this.recipient_User = recipient_User;
+	public void setRecipientUser(User recipientUser) {
+		this.recipientUser = recipientUser;
 	}
 
 	public String getType() {
@@ -108,16 +109,16 @@ public class Notification implements Serializable {
 	
 	
 
-	public void setNotification_id(int notification_id) {
-		this.notification_id = notification_id;
+	public void setNotification_id(int notificationId) {
+		this.notificationId = notificationId;
 	}
 
 	public int getObject_id() {
-		return object_id;
+		return objectId;
 	}
 
-	public void setObject_id(int object_id) {
-		this.object_id = object_id;
+	public void setObject_id(int objectId) {
+		this.objectId = objectId;
 	}
 
 	public int getUnread() {
@@ -128,8 +129,8 @@ public class Notification implements Serializable {
 		this.unread = unread;
 	}
 
-	public int getNotification_id() {
-		return notification_id;
+	public int getNotificationId() {
+		return notificationId;
 	}
 	
 	public Notification() {}

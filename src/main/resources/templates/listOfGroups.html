@@ -9,36 +9,36 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-	<title>Post Directory</title>
+	<title>Group Directory</title>
 </head>
 
 <body>
 
 <div class="container">
 
-	<h3>Post Directory</h3>
+	<h3>List of existing Discussion Groups</h3>
 	<hr>
 	
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
-				<th>Post id</th>
+				<th>Nazwa grupy</th>
 		
-				<th>Topic</th>
-				<th>Content</th>
+				<th>Infoc</th>
+				<th>Zasady</th>
 			
-				<th>Created at</th>
+				<th>Opis</th>
 				
 			</tr>
 		</thead>
 		
 		<tbody>
-			<tr th:each="tempPost : ${posts}">
+			<tr th:each="group : ${listOfGroups}">
 			
-				<td th:text="${tempPost.postId}" />	
-					<td th:text="${tempPost.topic}" />
-					<td th:text="${tempPost.content}" />
-				<td th:text="${tempPost.createdAt}" />	
+				<td th:text="${group.name}" />	
+					<td th:text="${group.groupInfo}" />
+					<td th:text="${group.rules}" />
+				<td th:text="${group.shortDescription}" />	
 				
 				
 			</tr>
@@ -49,5 +49,3 @@
 	
 </body>
 </html>
-
-

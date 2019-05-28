@@ -15,40 +15,48 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 
-
-@Configuration
-@EnableWebSecurity
-public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
-	
-	 @Bean
-	    public PasswordEncoder passwordEncoder() {
-	        return new BCryptPasswordEncoder();
-	    }
-	
-	
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-		auth.inMemoryAuthentication().withUser("user").
-			password(passwordEncoder().encode("password"));
-	}
-	
-	
-	@Override
-	public void configure(HttpSecurity httpSecurity) throws Exception {
-		
-		
-
-		httpSecurity.csrf().disable()
-			.authorizeRequests()
-			//.antMatchers(method)
-			.anyRequest()
-			.permitAll()
-			.and().httpBasic();
-		
-	}
-
-}
+//
+//@Configuration
+//@EnableWebSecurity
+//public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+//	
+//	 @Bean
+//	    public PasswordEncoder passwordEncoder() {
+//	        return new BCryptPasswordEncoder();
+//	    }
+//	
+//	
+//	@Autowired
+//	private UserDetailsService userDetailsService;
+//	
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//
+//		auth.inMemoryAuthentication().withUser("user").
+//			password(passwordEncoder().encode("password"));
+//	}
+//	
+//	
+//	@Override
+//	public void configure(HttpSecurity httpSecurity) throws Exception {
+//		
+//		
+//
+//		httpSecurity.csrf().disable()
+//			.authorizeRequests()
+//			//.antMatchers(method)
+//			.anyRequest()
+//			.permitAll()
+//			.and().httpBasic();
+//		
+//		 http
+//	        .authorizeRequests()
+//	            .anyRequest().authenticated()
+//	            .and()
+//	        .formLogin()
+//	            .and()
+//	        .httpBasic();
+//		
+//	}
+//
+//}

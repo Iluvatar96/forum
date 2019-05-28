@@ -24,7 +24,7 @@ public class Moderator implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="moderatr_id")
-	private int moderator_id;
+	private int moderatorId;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
@@ -34,20 +34,20 @@ public class Moderator implements Serializable {
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="group_id")
-	private Discussion_Group discussion_Group;
+	private DiscussionGroup discussionGroup;
 
 	
 	
-	public Moderator(int moderator_id, User user, Discussion_Group discussion_Group) {
+	public Moderator(int moderator_id, User user, DiscussionGroup discussion_Group) {
 	
-		this.moderator_id = moderator_id;
+		this.moderatorId = moderator_id;
 		this.user = user;
-		this.discussion_Group = discussion_Group;
+		this.discussionGroup = discussion_Group;
 	}
 
 	@Override
 	public String toString() {
-		return "Moderator [moderator_id=" + moderator_id + ", user=" + user + ", discussion_Group=" + discussion_Group
+		return "Moderator [moderator_id=" + moderatorId + ", user=" + user + ", discussion_Group=" + discussionGroup
 				+ "]";
 	}
 
@@ -59,22 +59,22 @@ public class Moderator implements Serializable {
 		this.user = user;
 	}
 
-	public Discussion_Group getDiscussion_Group() {
-		return discussion_Group;
+	public DiscussionGroup getDiscussionGroup() {
+		return discussionGroup;
 	}
 
-	public void setDiscussion_Group(Discussion_Group discussion_Group) {
-		this.discussion_Group = discussion_Group;
+	public void setDiscussion_Group(DiscussionGroup discussionGroup) {
+		this.discussionGroup = discussionGroup;
 	}
 	
 	
 
-	public void setModerator_id(int moderator_id) {
-		this.moderator_id = moderator_id;
+	public void setModerator_id(int moderatorId) {
+		this.moderatorId = moderatorId;
 	}
 
-	public int getModerator_id() {
-		return moderator_id;
+	public int getModeratorId() {
+		return moderatorId;
 	}
 	public Moderator(){}
 	}

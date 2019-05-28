@@ -3,10 +3,13 @@ package com.Alpaca.forum.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.Alpaca.forum.entities.User_Ban;
+import com.Alpaca.forum.entities.UserBan;
 
-public interface User_BanRepository extends JpaRepository<User_Ban, Integer> {
+
+@Repository
+public interface UserBanRepository extends JpaRepository<UserBan, Integer> {
 
 //public  List<User_Ban>findAll();
 	

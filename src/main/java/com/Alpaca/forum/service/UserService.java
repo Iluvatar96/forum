@@ -2,7 +2,10 @@ package com.Alpaca.forum.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.Alpaca.forum.entities.User;
+
 
 public interface UserService {
 	

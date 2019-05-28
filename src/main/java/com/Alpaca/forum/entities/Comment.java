@@ -31,7 +31,7 @@ public class Comment implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="comment_id")
-	private int comment_id;
+	private int commentId;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
@@ -49,16 +49,17 @@ public class Comment implements Serializable {
 	
 	@Column(name="created_at",columnDefinition="DATETIME")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private Date createdAt;
 
-	public int getComment_id() {
-		return comment_id;
+	
+	
+	public int getCommentId() {
+		return commentId;
 	}
 
 	
-	
-	public void setComment_id(int comment_id) {
-		this.comment_id = comment_id;
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
 	}
 
 
@@ -87,29 +88,35 @@ public class Comment implements Serializable {
 		this.post = post;
 	}
 
-	public Date getCreated_at() {
-		return created_at;
+	
+	
+	 public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
+
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
-	
-	 @PrePersist
+
+
+
+	@PrePersist
 	    protected void onCreate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	       
 	    }
 
 	    @PreUpdate
 	    protected void onUpdate() {
-	        this.created_at = new Date();
+	        this.createdAt = new Date();
 	    }
 
 	@Override
 	public String toString() {
-		return "Comment [comment_id=" + comment_id + ", user=" + user + ", content=" + content + ", post=" + post
-				+ ", created_at=" + created_at + "]";
+		return "Comment [comment_id=" + commentId + ", user=" + user + ", content=" + content + ", post=" + post
+				+ ", created_at=" + createdAt + "]";
 	}
 	
 	public Comment() {}

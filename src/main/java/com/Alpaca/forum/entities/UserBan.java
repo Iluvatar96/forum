@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user_bans")
-public class User_Ban implements Serializable{
+public class UserBan implements Serializable{
 		
 	
 
@@ -30,12 +30,12 @@ public class User_Ban implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_ban_id")
-	private int user_ban_id;
+	private int userBanId;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="group_id")
-	private Discussion_Group discussion_Group;
+	private DiscussionGroup discussionGroup;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
@@ -44,16 +44,16 @@ public class User_Ban implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User_Ban [user_ban_id=" + user_ban_id + ", discussion_Group=" + discussion_Group + ", user=" + user
+		return "User_Ban [user_ban_id=" + userBanId + ", discussion_Group=" + discussionGroup + ", user=" + user
 				+ "]";
 	}
 
-	public Discussion_Group getDiscussion_Group() {
-		return discussion_Group;
+	public DiscussionGroup getDiscussionGroup() {
+		return discussionGroup;
 	}
 
-	public void setDiscussion_Group(Discussion_Group discussion_Group) {
-		this.discussion_Group = discussion_Group;
+	public void setDiscussionGroup(DiscussionGroup discussionGroup) {
+		this.discussionGroup = discussionGroup;
 	}
 
 	public User getUser() {
@@ -64,16 +64,15 @@ public class User_Ban implements Serializable{
 		this.user = user;
 	}
 	
-	
 
-	public void setUser_ban_id(int user_ban_id) {
-		this.user_ban_id = user_ban_id;
+	public void setUserBanId(int userBanId) {
+		this.userBanId = userBanId;
 	}
 
-	public int getUser_ban_id() {
-		return user_ban_id;
+	public int getUserBanId() {
+		return userBanId;
 	}
 	
-	public User_Ban() {}
+	public UserBan() {}
 	
 }

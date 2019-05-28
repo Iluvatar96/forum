@@ -4,10 +4,12 @@ package com.Alpaca.forum.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.WebRequest;
 
 import com.Alpaca.forum.entities.User;
 import com.Alpaca.forum.service.UserService;
@@ -41,5 +43,11 @@ public class UserController {
 		return theUser;
 		
 	}
+	@GetMapping("/user/sign_up")
+	public String showRegistrationForm(WebRequest request, Model model) {
+	    User theUser = new User();
+	    model.addAttribute("user", theUser);
+	    return "sign_up";
 	
+}
 }
