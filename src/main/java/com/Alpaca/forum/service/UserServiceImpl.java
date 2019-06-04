@@ -1,7 +1,11 @@
 package com.Alpaca.forum.service;
 
+
+import java.util.HashSet;
 import java.util.List;
 
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.Alpaca.forum.entities.User;
 import com.Alpaca.forum.exception.UserNotFoundException;
+import com.Alpaca.forum.repository.RoleRepository;
 import com.Alpaca.forum.repository.UserRepository;
 
 
@@ -18,7 +23,13 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserRepository userRepository;
-
+	
+	@Autowired
+	private RoleRepository roleRepository;
+	
+	
+	
+	
 	@Override
 	public List<User> findAll() {
 	
@@ -48,7 +59,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User save(User user) {
-		// TODO Auto-generated method stub
+		user.setPassword(user.getPassword());
+		user.setRoles(new HashSet<>(roleRepository.findAll()));
 		return userRepository.save(user);
 	}
 
@@ -77,6 +89,16 @@ public class UserServiceImpl implements UserService{
 		
 		
 		
+	}
+	
+	
+	@Transactional
+	@Override
+	public User registerNewUserAccount(User user) {
+		
+		
+		
+		return null;
 	}
 	
 

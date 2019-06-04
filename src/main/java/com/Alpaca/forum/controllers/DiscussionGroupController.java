@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.Alpaca.forum.entities.DiscussionGroup;
 import com.Alpaca.forum.service.DiscussionGroupService;
-import com.Alpaca.forum.service.PostService;
 
 @Controller
 public class DiscussionGroupController {
@@ -17,9 +16,7 @@ public class DiscussionGroupController {
 	@Autowired
 	private DiscussionGroupService discussionGroupService;
 	
-	
-	@Autowired
-	private PostService postService;
+
 	
 	
 	@GetMapping("/groups")
@@ -31,5 +28,6 @@ public class DiscussionGroupController {
 		return "listOfGroups";
 		
 	}
+	
 	
 }
