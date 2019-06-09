@@ -49,7 +49,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 		httpSecurity
 		
 			.authorizeRequests()
-	        .antMatchers("/**", "/registration").permitAll()
+	        .antMatchers("/**", "/signUp").permitAll()
 	        .anyRequest().authenticated()
 	        .and()
 	    .formLogin()

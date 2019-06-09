@@ -19,6 +19,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -36,9 +37,11 @@ public class User implements Serializable {
 	@Column(name="user_id")
 	private int userId;
 	
+	@NotNull
 	@Column(name="username")
 	private String username;
 	
+	@NotNull
 	@Column(name="password")
 	private String password;
 	
@@ -49,6 +52,7 @@ public class User implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 	
+	@NotNull
 	@Column(name="e_mail")
 	private String email;
 	
@@ -57,6 +61,14 @@ public class User implements Serializable {
 	private String confirmPassword;
 	
 	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
 	@ManyToMany
 	@JoinTable(name="user_role", 
 				joinColumns = @JoinColumn(name = "user", referencedColumnName=" user_id"),

@@ -4,29 +4,71 @@ package com.Alpaca.forum.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
 import com.Alpaca.forum.entities.User;
+import com.Alpaca.forum.service.SecurityService;
 import com.Alpaca.forum.service.UserService;
+import com.Alpaca.forum.validator.UserValidator;
 
 
 
 
 
-@RestController
+@Controller
 @RequestMapping("/api")
 public class UserController {
 	
-	private UserService userService;
+	
 	
 	@Autowired
-	public UserController(UserService userService) {
-		this.userService = userService;
+	private UserService userService;
+	
+	
+	@Autowired
+	private SecurityService securityService;
+	
+	
+	@Autowired
+	private UserValidator userValidator;
+	
+//	@Autowired
+//	public UserController(UserService userService) {
+//		this.userService = userService;
+//	}
+	
+	@GetMapping("/signUp")
+	public String signUp(Model model) {
+		
+		model.addAttribute("userForm", new User());
+		return "signUp";
+		
+	}
+	
+	@PostMapping("/signUp")
+	public String signUp(@ModelAttribute("userForm") User userForm, BindingResult bindingResult ) {
+		
+		userValidator.validate(userForm, bindingResult);
+		
+		if(bindingResult.hasErrors()) {
+			return "signUp";
+		}
+		
+		userService.save(userForm);
+		
+		securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
+		
+		return "signUp";
+		
 	}
 	
 	@GetMapping("/users")
