@@ -3,6 +3,7 @@ package com.Alpaca.forum.service;
 
 
 public interface SecurityService {
+	
 	String findLoggedInUsername();
 	
 	

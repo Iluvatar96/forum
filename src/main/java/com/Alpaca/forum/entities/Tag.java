@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="tags")
@@ -26,12 +27,22 @@ public class Tag implements Serializable {
 	private int tagId;
 	
 	
+	
+	@NotNull
 	@Column(name="name")
 	private String tagName;
 
 
 	public void setTag_id(int tagId) {
 		this.tagId = tagId;
+	}
+
+
+
+	public Tag(int tagId, @NotNull String tagName) {
+		
+		this.tagId = tagId;
+		this.tagName = tagName;
 	}
 
 
@@ -47,7 +58,7 @@ public class Tag implements Serializable {
 	}
 
 
-	public void setTag_Name(String tagName) {
+	public void setTagName(String tagName) {
 		this.tagName = tagName;
 	}
 

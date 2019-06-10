@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.web.context.request.WebRequest;
 
 import com.Alpaca.forum.entities.User;
@@ -67,7 +67,7 @@ public class UserController {
 		
 		securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
 		
-		return "signUp";
+		return "redirect:/";
 		
 	}
 	

@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -50,8 +52,10 @@ public class Notification implements Serializable {
 	private User recipientUser;
 	
 	
-	@Column(name="type")
-	private String type;
+	
+	
+	@Enumerated(EnumType.STRING)
+	private com.Alpaca.forum.entities.Type type;
 	
 	
 	@Column(name="object_id")
@@ -99,25 +103,27 @@ public class Notification implements Serializable {
 		this.recipientUser = recipientUser;
 	}
 
-	public String getType() {
+
+	
+	
+
+	public com.Alpaca.forum.entities.Type getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(com.Alpaca.forum.entities.Type type) {
 		this.type = type;
 	}
-	
-	
 
 	public void setNotification_id(int notificationId) {
 		this.notificationId = notificationId;
 	}
 
-	public int getObject_id() {
+	public int getObjectId() {
 		return objectId;
 	}
 
-	public void setObject_id(int objectId) {
+	public void setObjectId(int objectId) {
 		this.objectId = objectId;
 	}
 

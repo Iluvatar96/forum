@@ -71,13 +71,31 @@ public class User implements Serializable {
 
 	@ManyToMany
 	@JoinTable(name="user_role", 
-				joinColumns = @JoinColumn(name = "user", referencedColumnName=" user_id"),
+				joinColumns = @JoinColumn(name = "user_id"),
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	Set<Role> roles;
 
 	
 
-	 public Set<Role> getRoles() {
+	
+	
+	
+	
+	
+	 public User(int userId, @NotNull String username, @NotNull String password, int isPremium, Date createdAt,
+			@NotNull String email, String confirmPassword, Set<Role> roles) {
+		
+		this.userId = userId;
+		this.username = username;
+		this.password = password;
+		this.isPremium = isPremium;
+		this.createdAt = createdAt;
+		this.email = email;
+		this.confirmPassword = confirmPassword;
+		this.roles = roles;
+	}
+
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
@@ -85,7 +103,7 @@ public class User implements Serializable {
 		this.roles = roles;
 	}
 
-	@PrePersist
+		@PrePersist
 	    protected void onCreate() {
 	        this.createdAt = new Date();
 	       

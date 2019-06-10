@@ -18,6 +18,6 @@ public interface UserBanRepository extends JpaRepository<UserBan, Integer> {
 //	public void updateTag(User_Ban theUserBan);
 //	public void addTag(User_Ban theUserBan);
 //	public void deleteByID(int theID);
-//	public User_Ban findByUsername(String username);
-//	public User_Ban findByEmail(String email);
+//	public UserBan findByUsername(String username);
+//	public UserBan findByEmail(String email);
 }

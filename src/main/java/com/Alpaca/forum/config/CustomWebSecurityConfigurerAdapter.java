@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 
 
@@ -25,11 +27,11 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
-//	 @Bean
-//	    public PasswordEncoder passwordEncoder() {
-//	        return new BCryptPasswordEncoder();
-//	    }
-//	
+	 @Bean
+	    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	        return new BCryptPasswordEncoder();
+	    }
+	
 	@Bean
 	public AuthenticationManager customAuthenticationManager() throws Exception {
 		return authenticationManager();
@@ -39,7 +41,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		auth.userDetailsService(userDetailsService);
+		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
 	}
 	
 	
@@ -47,20 +49,22 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 	public void configure(HttpSecurity httpSecurity) throws Exception {
 		
 		httpSecurity
-		
+		.csrf().disable()
 			.authorizeRequests()
-	        .antMatchers("/**", "/signUp").permitAll()
+	        	.antMatchers("/**").permitAll()
 	        .anyRequest().authenticated()
-	        .and()
-	    .formLogin()
-	        .loginPage("/login")
-	        .permitAll()
-	        .and()
-	    .logout()
-	        .permitAll();
-       
+			        .and()
+			    .formLogin()
+			        .loginPage("/login")
+			        .permitAll()
+			        .and()
+			    .logout()
+			        .permitAll();
+		
 
 		
 	}
+	
+	
 
 }

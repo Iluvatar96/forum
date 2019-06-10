@@ -5,15 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 
 
-import javax.transaction.Transactional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
 import com.Alpaca.forum.entities.User;
-import com.Alpaca.forum.exception.UserNotFoundException;
 import com.Alpaca.forum.repository.RoleRepository;
 import com.Alpaca.forum.repository.UserRepository;
 
@@ -28,7 +27,8 @@ public class UserServiceImpl implements UserService{
 	private RoleRepository roleRepository;
 	
 	
-	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
 	public List<User> findAll() {
@@ -45,9 +45,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User findByUsername(String username) {
 		User user = userRepository.findByUsername(username);
-        if (user == null) {
-            throw  new UserNotFoundException();
-        }
+       
         return user;
 	}
 
@@ -59,7 +57,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User save(User user) {
-		user.setPassword(user.getPassword());
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setRoles(new HashSet<>(roleRepository.findAll()));
 		return userRepository.save(user);
 	}
@@ -92,14 +90,6 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	
-	@Transactional
-	@Override
-	public User registerNewUserAccount(User user) {
-		
-		
-		
-		return null;
-	}
 	
 
 }

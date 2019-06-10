@@ -12,6 +12,6 @@ public interface TagRepository extends JpaRepository<Tag, Integer>{
 	
 	
 
-
+	Tag findByTagName(String tagName);
 
 }

@@ -11,8 +11,6 @@ public interface UserService {
 	
 	
 	List<User> findAll();
-	
-	User registerNewUserAccount(User user);
 
     User findOne(int id);
 

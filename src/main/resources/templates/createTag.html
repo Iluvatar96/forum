@@ -11,21 +11,18 @@
     	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
     	crossorigin="anonymous">
     	
-    	<title>Registration</title>
+    	<title>Save Tag</title>
 </head>
 
 <body>
 
 	<div class="container">
-		<h3>Sign Up</h3>
+		<h3>Tag Directory</h3>
 		<hr>
-		<p class="h4 mb-4">Save User</p>
-		<form action="#" th:action="@{/api/signUp}" th:object="${userForm}" method="POST">
+		<p class="h4 mb-4">Save Tag</p>
+		<form action="#" th:action="@{/tagsOptions/save}" th:object="${tagForm}" method="POST">
 		
-			<input type="text" th:field="*{username}" class="form-control mb-4 col-4" placeholder="Username">
-			<input type="text" th:field="*{password}" class="form-control mb-4 col-4" placeholder="Password">
-			<input type="text" th:field="*{confirmPassword}" class="form-control mb-4 col-4" placeholder="Confirm Password">
-			<input type="text" th:field="*{email}" class="form-control mb-4 col-4" placeholder="Your Email">
+			<input type="text" th:field="*{tagName}" class="form-control mb-4 col-4" placeholder="Tag Name">
 
 		
 				
@@ -35,7 +32,7 @@
 		
 		<hr>
 	
-	<a th:href="@{/posts/list}">Redirection</a>
+	<a th:href="@{/tagsOptions/tagList}">Redirection</a>
 	
 	</div>
 
