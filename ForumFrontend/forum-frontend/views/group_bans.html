@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>Ustawienia - Bany - Alpaca</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <script src="../vendor/fontawesome/fontawesome.js"></script>
+    <script src="../vendor/fontawesome/solid.js"></script>
+
+    <script src="../vendor/jquery/jquery-3.4.0.js"></script>
+
+    <script src="../js/search_popup.js"></script>
+    <script src="../js/group_bans.js"></script>
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Administracja: Nazwa_grupy</h1>
+                <ul class="nav nav-tabs mt-5">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Ogólne</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Moderacja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Bany</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-7 col-md-7 order-1 order-md-0">
+                <h3>Zbanowani użytkownicy</h3>
+                <ul id="ban-list" class="list-group list-group-sm list-group-spaced mt-3">
+                    <li user-id="2" class="list-group-item d-flex align-items-center justify-content-between">
+                        <div>Usser_1</div>
+                        <button class="unban-btn btn btn-sm btn-success">Odbanuj</button>
+                    </li>
+                    <li user-id="23" class="list-group-item d-flex align-items-center justify-content-between">
+                        <div>Usser_2</div>
+                        <button class="unban-btn btn btn-sm btn-success">Odbanuj</button>
+                    </li>
+                    <li user-id="12" class="list-group-item d-flex align-items-center justify-content-between">
+                        <div>Usser_3</div>
+                        <button class="unban-btn btn btn-sm btn-success">Odbanuj</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 offset-lg-1 col-lg-4 col-md-5 order-0 order-md-1 mb-4">
+                <form action method="POST" class="card clearfix">
+                    <div class="card-body">
+                        <h4>Zbanuj użytkownika</h4>
+                        <div id="user-search-container" class="form-group position-relative mt-3">
+                            <input id="username-input" type="text" class="form-control" name="username"
+                                autocomplete="off" placeholder="Nazwa użytkownika" required />
+                            <ul id="user-search-popup" class="list-group search-popup">
+
+                            </ul>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-right">Potwierdź</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

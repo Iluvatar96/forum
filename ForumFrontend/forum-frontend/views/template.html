@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>Logowanie - Alpaca</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <script src="../vendor/fontawesome/fontawesome.js"></script>
+    <script src="../vendor/fontawesome/solid.js"></script>
+
+    <script src="../vendor/jquery/jquery-3.4.0.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav id="main-navbar" class="navbar navbar-expand-sm navbar-dark">
+        <a class="navbar-brand" href="/">
+            <img src="../svg/logo.svg" width="30" height="30" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="navbar-links" class="navbar-nav d-sm-none d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Stwórz grupę</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tagi</a>
+                </li>
+            </ul>
+            <form id="navbar-search" action="" method="GET">
+                <input type="text" placeholder="Szukaj grup..." />
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <a href="/notifications" id="notification-block" class="link-blank">
+                <span id="notification-icon">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <div id="notification-new-indicator"></div>
+                </span>
+                <span id="notification-label">Powiadomienia</span>
+            </a>
+            <!--
+            <button class="btn btn-sm btn-outline-light mr-2 px-4">Zaloguj</button>
+            <button class="btn btn-sm btn-light px-4">Zarejestruj się</button>
+            -->
+            <div id="navbar-user-badge">
+                <div id="user-menu-collapse" class="user-badge">
+                    <div class="user-avatar">
+                        <i class="fas fa-user user-icon"></i>
+                    </div>
+                    <span class="user-icon-name">Usser_1</span>
+                    <i class="fas fa-caret-down ml-2"></i>
+                </div>
+                <div id="user-menu" class="user-menu-hidden">
+                    <a href="settings" class="user-menu-item link-blank">
+                        <i class="fas fa-cog fa-fw user-menu-item-icon"></i>
+                        <span>Ustawienia</span>
+                    </a>
+                    <a href="logout" id="logout-menu-item" class="user-menu-item link-blank">
+                        <i class="fas fa-sign-out-alt fa-fw user-menu-item-icon"></i>
+                        <span>Wyloguj</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container vh-100">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="footer-left">
+            <span>Wykonanie: Alpaca Software Sp. z o.o</span>
+        </div>
+        <div id="footer-center">
+            <a href="https://facebook.com" class="social-link">
+                <img src="../svg/facebook.svg" width="30" height="30" />
+            </a>
+            <a href="https://twitter.com" class="social-link">
+                <img src="../svg/twitter.svg" width="30" height="30" />
+            </a>
+        </div>
+        <div id="footer-right">
+            <a href="regulamin" class="footer-link">Regulamin</a>
+            <a href="kontakt" class="footer-link">Kontakt</a>
+        </div>
+    </footer>
+</body>
+
+</html>

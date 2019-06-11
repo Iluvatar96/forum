@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>Stwórz nową grupę - Alpaca</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <script src="../vendor/fontawesome/fontawesome.js"></script>
+    <script src="../vendor/fontawesome/solid.js"></script>
+
+    <script src="../vendor/jquery/jquery-3.4.0.js"></script>
+
+    <script src="../js/tags_lock.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1>Stwórz nową grupe</h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-8 mx-auto">
+                <form action="" method="GET" class="clearfix">
+                    <div class="form-group">
+                        <label for="group-name">Nazwa grupy</label>
+                        <input id="group-name" type="text" class="form-control" placeholder="Nazwa grupy" />
+                    </div>
+                    <div class="form-group">
+                        <p for="group-name">Tagi</p>
+                        <input id="art-tag" type="checkbox" name="tags[]" value="art" class="button-checkbox" />
+                        <label for="art-tag" class="button-checkbox-label">Sztuka</label>
+
+                        <input id="literature-tag" type="checkbox" name="tags[]" value="literature"
+                            class="button-checkbox" />
+                        <label for="literature-tag" class="button-checkbox-label">Literatura</label>
+
+                        <input id="politics-tag" type="checkbox" name="tags[]" value="politics"
+                            class="button-checkbox" />
+                        <label for="politics-tag" class="button-checkbox-label">Polityka</label>
+
+                        <input id="music-tag" type="checkbox" name="tags[]" value="music" class="button-checkbox" />
+                        <label for="music-tag" class="button-checkbox-label">Muzyka</label>
+
+                        <input id="games-tag" type="checkbox" name="tags[]" value="ganes" class="button-checkbox" />
+                        <label for="games-tag" class="button-checkbox-label">Gry</label>
+
+                        <input id="memes-tag" type="checkbox" name="tags[]" value="memes" class="button-checkbox" />
+                        <label for="memes-tag" class="button-checkbox-label">Memy</label>
+
+                        <input id="movies-tag" type="checkbox" name="tags[]" value="movies" class="button-checkbox" />
+                        <label for="movies-tag" class="button-checkbox-label">Filmy</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right px-4">Stwórz grupę</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

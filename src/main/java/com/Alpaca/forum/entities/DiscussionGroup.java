@@ -65,7 +65,26 @@ public class DiscussionGroup implements Serializable{
 
 	
 
-	 @PrePersist
+	
+	
+	
+	
+	
+	 public DiscussionGroup(int groupId, String groupName, User user, int isPrivate, String accessPasswd, Date createdAt,
+			String groupInfo, String rules, String description) {
+		
+		this.groupId = groupId;
+		this.groupName = groupName;
+		this.user = user;
+		this.isPrivate = isPrivate;
+		this.accessPasswd = accessPasswd;
+		this.createdAt = createdAt;
+		this.groupInfo = groupInfo;
+		this.rules = rules;
+		this.description = description;
+	}
+
+	@PrePersist
 	    protected void onCreate() {
 	        this.createdAt = new Date();
 	       
@@ -119,7 +138,7 @@ public class DiscussionGroup implements Serializable{
 		return isPrivate;
 	}
 
-	public void setIs_private(int isPrivate) {
+	public void setIsPrivate(int isPrivate) {
 		this.isPrivate = isPrivate;
 	}
 
@@ -141,12 +160,12 @@ public class DiscussionGroup implements Serializable{
 		this.createdAt = createdAt;
 	}
 
-	public String getGroup_Info() {
+	public String getGroupInfo() {
 		return groupInfo;
 	}
 
-	public void setGroup_Info(String group_Info) {
-		this.groupInfo = group_Info;
+	public void setGroupInfo(String groupInfo) {
+		this.groupInfo = groupInfo;
 	}
 
 	public String getRules() {

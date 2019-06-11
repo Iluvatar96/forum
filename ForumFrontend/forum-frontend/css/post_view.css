@@ -1,0 +1,20 @@
+#comments-separator {
+    border-bottom: 1px solid rgb(189, 189, 189);
+    font-weight: bold;
+    margin: 0px 10px;
+    padding-bottom: 5px;
+}
+
+.user-comment {
+    margin: 10px;
+}
+
+.comment {
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.comment-body {
+    background-color: white;
+    padding: 10px;
+}

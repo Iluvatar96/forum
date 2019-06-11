@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <title>Rejestracja - Alpaca</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <script src="../vendor/fontawesome/fontawesome.js"></script>
+    <script src="../vendor/fontawesome/solid.js"></script>
+
+    <script src="../vendor/jquery/jquery-3.4.0.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex flex-column align-items-center">
+                <img id="login-logo" src="../svg/logo.svg" />
+                <div id="login-container">
+                    <div id="view-switch">
+                        <a href="log_in.html">Logowanie</a>
+                        <a class="active" href="sign_up.html">Rejestracja</a>
+                    </div>
+                    <form action="" method="POST" id="login-form">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="email"
+                                placeholder="E-mail" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Nazwa użytkownika</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="username"
+                                placeholder="Nazwa użytkownika" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Hasło</label>
+                            <input type="password" class="form-control" id="password" aria-describedby="password"
+                                placeholder="Hasło" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Potwierdź hasło</label>
+                            <input type="password" class="form-control" id="confirm-password"
+                                aria-describedby="confirm-password" placeholder="Potwierdź hasło" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary d-block m-auto px-5">Zarejestruj</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

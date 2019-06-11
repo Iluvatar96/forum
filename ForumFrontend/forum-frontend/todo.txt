@@ -1,0 +1,10 @@
+1. Modyfikacja bootstrapa
+    shadow przycisków
+2. Javascript
+3. Główna strona użytkownika
+    Strona zawiera:
+    -Ostatnie subskrypcje
+    -Ostatnie posty z subskrybowanych grup
+4. Widok pytania o hasło do grupy
+5. Widok błędu
+    

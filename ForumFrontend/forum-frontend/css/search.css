@@ -1,0 +1,18 @@
+.search-item {
+    display: flex;
+    align-items: center;
+}
+
+.search-item-lock {
+    width: 15px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.search-item-name {
+    flex-shrink: 0;
+}
+
+.search-item-desc {
+    flex-grow: 1;
+}

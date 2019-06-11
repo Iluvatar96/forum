@@ -35,10 +35,10 @@
 		<tbody>
 			<tr th:each="group : ${listOfGroups}">
 			
-				<td th:text="${group.name}" />	
+				<td th:text="${group.groupName}" />	
 					<td th:text="${group.groupInfo}" />
 					<td th:text="${group.rules}" />
-				<td th:text="${group.shortDescription}" />	
+				<td th:text="${group.description}" />	
 				
 				
 			</tr>

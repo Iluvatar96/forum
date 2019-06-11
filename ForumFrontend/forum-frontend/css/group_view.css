@@ -1,0 +1,80 @@
+/*
+ *  BANNER
+ */
+
+#group-banner {
+    background-color: #424242;
+    padding: 10px 20px 30px;
+    color: white;
+}
+
+#group-banner-name {
+    font-size: 50px;
+}
+
+/*
+ *  LEFT SIDE
+ */
+
+#group-info {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #cfcfcf;
+}
+
+.post {
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.post-header {
+    background-color: #424242;
+    padding: 1rem;
+    color: white;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.post-date, .post-comments {
+    color: #999999;
+    font-size: 0.7em;
+}
+
+.post-date {
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+.post-title {
+    font-size: 1.6em;
+}
+
+.post-content {
+    background-color: white;
+    padding: 15px;
+    border-color: #cfcfcf;
+    border-width: 1px;
+    border-style: solid;
+    border-width: 0px 1px 1px;
+}
+
+.post-content-img {
+    display: block;
+    max-width: 100%;
+    margin: 10px 0px;
+}
+
+/*
+ *  RIGHT SIDE
+ */
+
+#add-post-btn {
+    width: 100%;
+}

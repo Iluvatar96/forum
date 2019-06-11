@@ -1,0 +1,23 @@
+.button-checkbox {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    user-select: none;
+}
+
+.button-checkbox-label {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.gray-label {
+    background-color: #f1f1f1;
+}
+
+.button-checkbox:checked+.button-checkbox-label {
+    background-color: #476e8c;
+    color: white;
+}
